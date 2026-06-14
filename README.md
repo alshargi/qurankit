@@ -1,54 +1,10 @@
 # QuranKit
 
-**QuranKit** is a query-first Python toolkit for computational Quran analysis, providing structured access to Quranic text, morphology, roots, lemmas, translations, tafsir, and linguistic pattern discovery.
+[![PyPI version](https://img.shields.io/pypi/v/qurankit.svg)](https://pypi.org/project/qurankit/)
+[![Python](https://img.shields.io/pypi/pyversions/qurankit.svg)](https://pypi.org/project/qurankit/)
+[![License](https://img.shields.io/github/license/alshargi/qurankit.svg)](LICENSE)
 
-Developed by **Dr. Faisal Alshargi**.
-
----
-
-## Features
-
-* Quranic verse retrieval
-* Root-based search
-* Lemma-based search
-* Word-level linguistic analysis
-* POS tagging access
-* Morphological feature access
-* Multi-language translations
-* Tafsir retrieval
-* Root-order pattern discovery
-* Frequency analysis
-* Research-oriented querying
-* Memory-only dataset loading
-
----
-
-## Design Philosophy
-
-QuranKit is designed around **feature-level access rather than dataset export**.
-
-Users interact with the Quran through focused search and analysis functions instead of downloading or manipulating the complete dataset.
-
-### Core Principles
-
-* Returns only the requested information
-* Compact results by default
-* No API key required
-* No remote inference
-* Query-first architecture
-* Memory-only dataset loading
-* Translation and tafsir access only when explicitly requested
-
-QuranKit intentionally does **not** provide:
-
-```python
-q.to_dataframe()
-q.export_json()
-q.export_dataset()
-q.dump_all()
-```
-
-This keeps the package focused on analysis, exploration, and research rather than dataset replication.
+A powerful Python toolkit for Quranic text retrieval, linguistic analysis, morphology, root and lemma search, translations, tafsir access, and computational Quran research.
 
 ---
 
@@ -56,12 +12,6 @@ This keeps the package focused on analysis, exploration, and research rather tha
 
 ```bash
 pip install qurankit
-```
-
-For development:
-
-```bash
-pip install -e .
 ```
 
 ---
@@ -75,14 +25,60 @@ q = QuranKit()
 
 print(q.stats())
 
-ayah = q.get_ayah(1, 1)
-print(ayah)
+print(q.get_ayah(1, 1))
 
-results = q.search_root("رحم", limit=3)
-
-translation = q.get_translation(2, 255, lang="en")
-print(translation["translation"])
+print(q.get_translation(2, 255, lang="en")["translation"])
 ```
+
+---
+
+## Features
+
+### Quran Text
+
+* Retrieve verses by surah and ayah
+* Random verse generation
+* Verse metadata access
+* Compact response format
+
+### Linguistic Analysis
+
+* Word tokenization
+* Root extraction
+* Lemma extraction
+* POS tagging
+* Morphological feature access
+* Full word-level analysis
+
+### Search Engine
+
+* Search Quran text
+* Search words
+* Search roots
+* Search lemmas
+* Search POS tags
+* Translation search
+
+### Translations
+
+* Multiple language support
+* Single translation retrieval
+* Multi-translation retrieval
+* Translation search
+
+### Tafsir
+
+* Al-Muyassar
+* Al-Jalalayn
+* On-demand retrieval
+
+### Research & Analytics
+
+* Root frequency analysis
+* Repeated root-order discovery
+* Pattern mining
+* Statistical summaries
+* Research-oriented querying
 
 ---
 
@@ -109,10 +105,11 @@ Example:
 ## Verse Retrieval
 
 ```python
-q.get_ayah(1, 1)
+ayah = q.get_ayah(1, 1)
+print(ayah)
 ```
 
-Example output:
+Output:
 
 ```python
 {
@@ -127,8 +124,6 @@ Example output:
 ---
 
 ## Linguistic Features
-
-Retrieve individual linguistic layers without loading unnecessary information.
 
 ```python
 q.get_words(2, 255)
@@ -150,37 +145,35 @@ q.word_analysis(2, 255)
 
 ## Search
 
-### Search Text
+### Text Search
 
 ```python
 q.search_text("الله", limit=5)
 ```
 
-### Search Word
+### Word Search
 
 ```python
 q.search_word("جنة", limit=5)
 ```
 
-### Search Root
+### Root Search
 
 ```python
 q.search_root("رحم", limit=5)
 ```
 
-### Search Lemma
+### Lemma Search
 
 ```python
 q.search_lemma("ٱللَّه", limit=5)
 ```
 
-### Search POS Tags
+### POS Search
 
 ```python
 q.search_pos("V", limit=5)
 ```
-
-Search results remain compact and exclude long translations and tafsir content.
 
 ---
 
@@ -192,7 +185,7 @@ List available languages:
 q.available_languages()
 ```
 
-Retrieve a specific translation:
+Retrieve a translation:
 
 ```python
 q.get_translation(2, 255, lang="en")
@@ -208,7 +201,7 @@ q.get_translations(
 )
 ```
 
-Search inside translations:
+Search translations:
 
 ```python
 q.search_translation(
@@ -221,8 +214,6 @@ q.search_translation(
 ---
 
 ## Tafsir
-
-Retrieve tafsir only when requested.
 
 ### Al-Muyassar
 
@@ -257,7 +248,7 @@ q.find_repeated_root_orders(
 )
 ```
 
-Root frequency statistics:
+Root frequency:
 
 ```python
 q.root_frequency(limit=20)
@@ -269,34 +260,6 @@ q.root_frequency(limit=20)
 
 ```python
 q.random_ayah()
-```
-
----
-
-## Dataset Handling
-
-QuranKit ships with a minimal bundled sample dataset for testing and fallback purposes.
-
-The complete Quran dataset is loaded from the internal default dataset source into memory only.
-
-QuranKit does not intentionally persist the full dataset to local storage and does not provide dataset export utilities.
-
----
-
-## Performance
-
-```python
-import time
-
-start = time.time()
-
-q = QuranKit()
-
-print(
-    "Load time:",
-    round(time.time() - start, 2),
-    "seconds"
-)
 ```
 
 ---
@@ -320,12 +283,40 @@ for verse in verses:
 
 ---
 
-## Disclaimer
+## Design Philosophy
 
-QuranKit is intended for computational analysis, research, education, and software development.
+QuranKit follows a query-first architecture designed for research and analysis.
 
-It is not a source of religious rulings, legal opinions, or authoritative tafsir.
+Core principles:
 
+* Lightweight API
+* Focused retrieval
+* Fast search
+* Memory-efficient access
+* Research-oriented workflows
+* No API key required
+
+---
+
+## License
+
+MIT License
+
+---
+
+## Citation - Author
+
+```text
+QuranKit: Python Toolkit for Computational Quran Analysis
+Author: Dr. Faisal Alshargi
+GitHub: https://github.com/alshargi/qurankit
+PyPI: https://pypi.org/project/qurankit/
 ```
-```
 
+ثم:
+
+```bash
+git add README.md
+git commit -m "Professional README with full feature documentation"
+git push
+```

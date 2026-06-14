@@ -13,6 +13,10 @@ A powerful Python toolkit for Quranic text retrieval, linguistic analysis, morph
 ```bash
 pip install qurankit
 ```
+## Why QuranKit?
+
+QuranKit provides a unified Python interface for Quranic text, morphology, roots, lemmas, translations, tafsir, and computational analysis workflows.
+```
 
 ---
 

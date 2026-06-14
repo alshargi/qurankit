@@ -16,7 +16,8 @@ pip install qurankit
 ## Why QuranKit?
 
 QuranKit provides a unified Python interface for Quranic text, morphology, roots, lemmas, translations, tafsir, and computational analysis workflows.
-```
+
+
 
 ---
 
@@ -32,6 +33,7 @@ print(q.stats())
 print(q.get_ayah(1, 1))
 
 print(q.get_translation(2, 255, lang="en")["translation"])
+
 ```
 
 ---

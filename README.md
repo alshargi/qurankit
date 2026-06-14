@@ -313,10 +313,4 @@ GitHub: https://github.com/alshargi/qurankit
 PyPI: https://pypi.org/project/qurankit/
 ```
 
-ثم:
-
-```bash
-git add README.md
-git commit -m "Professional README with full feature documentation"
-git push
-```
+ثم

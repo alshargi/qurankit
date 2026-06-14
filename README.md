@@ -88,18 +88,6 @@ print(q.get_translation(2, 255, lang="en")["translation"])
 q.stats()
 ```
 
-Example:
-
-```python
-{
-    "surahs": 114,
-    "ayahs": 6236,
-    "languages": 20,
-    "roots": 1600,
-    "lemmas": 14000
-}
-```
-
 ---
 
 ## Verse Retrieval
